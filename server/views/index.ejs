@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CareConnect — Connecting patients with free healthcare and volunteers with meaningful service, powered by AI." />
+  <title>CareConnect — Healthcare Support Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="cross-icon">✚</span>
+      CareConnect
+    </div>
+    <div class="nav-links">
+      <a href="#register">Register</a>
+      <a href="#assistant">AI Assistant</a>
+      <a href="#services">Services</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-radial" aria-hidden="true"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Healthcare NGO Support Portal</div>
+    <h1>Care that <em>reaches</em><br />every patient.</h1>
+    <p>Connecting patients with free healthcare resources, and volunteers with meaningful service — powered by compassion and AI.</p>
+    <div class="hero-btns">
+      <a href="#register" class="btn btn-primary">Register Now →</a>
+      <a href="#assistant" class="btn btn-outline">💬 Ask AI Assistant</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-card">
+      <div class="stat">
+        <div class="stat-num">2,400+</div>
+        <div class="stat-label">Patients Served</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <div class="stat-num">380</div>
+        <div class="stat-label">Volunteers</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Clinic Centres</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── REGISTRATION ──────────────────────────────────────────────────────────── -->
+<section class="section" id="register">
+  <div class="section-label">Registration</div>
+  <h2 class="section-title">Join Our Network</h2>
+  <p class="section-sub">Whether you're seeking support or looking to give back — fill the form and our team will reach you within 24 hours.</p>
+
+  <% if (error) { %>
+  <div class="alert-error">⚠️ <%= error %></div>
+  <% } %>
+  <% if (success) { %>
+  <div class="alert-success">✅ <%= success %></div>
+  <% } %>
+
+  <!-- Tabs -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" role="tab" id="tab-btn-patient"   onclick="switchTab('patient',this)">🏥 Patient Support</button>
+    <button class="tab-btn"        role="tab" id="tab-btn-volunteer" onclick="switchTab('volunteer',this)">🤝 Volunteer</button>
+    <button class="tab-btn"        role="tab" id="tab-btn-contact"   onclick="switchTab('contact',this)">✉️ Contact Us</button>
+  </div>
+
+  <!-- ── PATIENT FORM ── -->
+  <div id="panel-patient" class="tab-panel active" role="tabpanel">
+    <div class="form-card">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="p-name">Full Name *</label>
+          <input type="text" id="p-name" placeholder="Priya Sharma" />
+        </div>
+        <div class="form-group">
+          <label for="p-age">Age</label>
+          <input type="number" id="p-age" placeholder="34" min="1" max="120" />
+        </div>
+        <div class="form-group">
+          <label for="p-phone">Phone Number *</label>
+          <input type="tel" id="p-phone" placeholder="+91 98765 43210" />
+        </div>
+        <div class="form-group">
+          <label for="p-email">Email Address</label>
+          <input type="email" id="p-email" placeholder="priya@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="p-city">City / District</label>
+          <input type="text" id="p-city" placeholder="Agra, Uttar Pradesh" />
+        </div>
+        <div class="form-group">
+          <label for="p-support">Support Type Needed *</label>
+          <select id="p-support">
+            <option value="">Select service…</option>
+            <option>General Medical Consultation</option>
+            <option>Mental Health Support</option>
+            <option>Maternal &amp; Child Health</option>
+            <option>Chronic Disease Management</option>
+            <option>Medicines / Pharmacy Aid</option>
+            <option>Diagnostic Tests (Free)</option>
+            <option>Home Visit Request</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="p-history">Brief Medical History / Reason for Support</label>
+          <textarea id="p-history" placeholder="Describe your current health situation and what support you're looking for…"></textarea>
+        </div>
+        <div class="form-group full">
+          <label for="p-income">Income Category (for subsidy eligibility)</label>
+          <select id="p-income">
+            <option value="">Select…</option>
+            <option>Below Poverty Line (BPL)</option>
+            <option>Low Income</option>
+            <option>Middle Income</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-foot">
+        <button class="btn btn-primary" id="patient-submit-btn" onclick="submitPatient()">
+          <span class="btn-label">Submit Registration →</span>
+          <span class="btn-spin hidden"></span>
+        </button>
+        <span class="form-note">🔒 Your information is kept strictly confidential.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VOLUNTEER FORM ── -->
+  <div id="panel-volunteer" class="tab-panel" role="tabpanel">
+    <div class="form-card">
+      <form id="volunteer-form" action="/api/register" method="POST" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="v-name">Full Name *</label>
+            <input type="text" id="v-name" name="name" placeholder="Rahul Mehta" required />
+          </div>
+          <div class="form-group">
+            <label for="v-prof">Profession / Occupation</label>
+            <input type="text" id="v-prof" placeholder="Medical Student / Doctor / Engineer" />
+          </div>
+          <div class="form-group">
+            <label for="v-email">Email *</label>
+            <input type="email" id="v-email" name="email" placeholder="rahul@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="v-phone">Phone</label>
+            <input type="tel" id="v-phone" placeholder="+91 99999 00000" />
+          </div>
+          <div class="form-group">
+            <label for="v-city">City</label>
+            <input type="text" id="v-city" placeholder="Delhi" />
+          </div>
+          <div class="form-group">
+            <label for="v-role">Volunteer Role *</label>
+            <select id="v-role" name="role" required>
+              <option value="Medical Professional">🩺 Medical Professional (Doctor / Nurse)</option>
+              <option value="Logistics/Driver">🚗 Logistics / Driver</option>
+              <option value="Admin/Support">📋 Admin / General Support</option>
+              <option value="Tech/IT">💻 Tech / IT Support</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="v-exp">Your Experience / Skills *</label>
+            <textarea id="v-exp" name="experience" placeholder="Describe your past experience or what motivates you to volunteer…" required></textarea>
+          </div>
+        </div>
+        <div class="form-foot">
+          <button type="submit" class="btn btn-primary" id="volunteer-submit-btn">
+            <span class="btn-label">Apply as Volunteer →</span>
+            <span class="btn-spin hidden"></span>
+          </button>
+          <span class="form-note">✨ Our AI will generate your personalised deployment suggestion.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── CONTACT FORM ── -->
+  <div id="panel-contact" class="tab-panel" role="tabpanel">
+    <div class="form-card">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="c-name">Your Name *</label>
+          <input type="text" id="c-name" placeholder="Name" />
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email *</label>
+          <input type="email" id="c-email" placeholder="email@example.com" />
+        </div>
+        <div class="form-group full">
+          <label for="c-subject">Subject</label>
+          <select id="c-subject">
+            <option>General Enquiry</option>
+            <option>Partnership / Collaboration</option>
+            <option>Donation / Sponsorship</option>
+            <option>Media / Press</option>
+            <option>Feedback</option>
+            <option>Complaint</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="c-msg">Message *</label>
+          <textarea id="c-msg" placeholder="How can we help you?" style="min-height:140px;"></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <button class="btn btn-primary" id="contact-submit-btn" onclick="submitContact()">
+          <span class="btn-label">Send Message →</span>
+          <span class="btn-spin hidden"></span>
+        </button>
+        <span class="form-note">We respond within 1–2 business days.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── AI ASSISTANT ──────────────────────────────────────────────────────────── -->
+<section class="section" id="assistant">
+  <div class="section-label">AI-Powered</div>
+  <h2 class="section-title">Healthcare FAQ Assistant</h2>
+  <p class="section-sub">Ask anything about our services, eligibility, or volunteering. Our Gemini-powered assistant responds instantly, 24/7.</p>
+
+  <div class="chat-wrapper">
+    <!-- Sidebar -->
+    <aside class="chat-sidebar">
+      <h3>Common Questions</h3>
+      <div class="faq-chips">
+        <button class="faq-chip" onclick="sendFAQ('What free services do you offer?')">What free services do you offer?</button>
+        <button class="faq-chip" onclick="sendFAQ('How do I register as a patient?')">How do I register as a patient?</button>
+        <button class="faq-chip" onclick="sendFAQ('Who is eligible for support?')">Who is eligible for support?</button>
+        <button class="faq-chip" onclick="sendFAQ('How can I volunteer?')">How can I volunteer?</button>
+        <button class="faq-chip" onclick="sendFAQ('Where are your clinic centres located?')">Where are your clinic centres?</button>
+        <button class="faq-chip" onclick="sendFAQ('Do you provide home visits?')">Do you provide home visits?</button>
+        <button class="faq-chip" onclick="sendFAQ('How to donate or sponsor CareConnect?')">How to donate or sponsor?</button>
+      </div>
+    </aside>
+
+    <!-- Chat window -->
+    <div class="chat-main">
+      <div class="chat-header">
+        <div class="chat-avatar-icon">🤖</div>
+        <div class="chat-meta">
+          <strong>CareConnect AI Assistant</strong>
+          <span class="online-dot">● Online — powered by Gemini AI</span>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">
+          <div class="msg-av">🤖</div>
+          <div class="msg-bubble">Hello! I'm the CareConnect AI assistant. I can help you with questions about our services, eligibility, volunteer opportunities, and more. How can I help you today?</div>
+        </div>
+      </div>
+
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" type="text"
+          placeholder="Ask me anything about our services…"
+          onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendChat(); }" />
+        <button class="chat-send" id="sendBtn" onclick="sendChat()" title="Send message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── SERVICES ──────────────────────────────────────────────────────────────── -->
+<section class="section" id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Our Core Services</h2>
+  <p class="section-sub">Free and subsidised healthcare services designed for underserved communities across India.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <h3>Medical Consultations</h3>
+      <p>Free general and specialist consultations at our 14 clinic centres, including paediatrics and women's health.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧠</div>
+      <h3>Mental Health Support</h3>
+      <p>Counselling, group therapy, and crisis helplines staffed by licensed psychologists and trained volunteers.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💊</div>
+      <h3>Medicine Distribution</h3>
+      <p>Subsidised or free essential medicines for BPL cardholders and patients with chronic illnesses.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Home Visit Programme</h3>
+      <p>Trained health workers visit bedridden or mobility-impaired patients for check-ups and medication delivery.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Diagnostic Tests</h3>
+      <p>Free blood tests, X-rays, and screenings through partner labs. Early detection saves lives.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👶</div>
+      <h3>Maternal &amp; Child Health</h3>
+      <p>Antenatal care, immunisation drives, nutritional support, and safe delivery assistance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-logo"><span class="cross-icon">✚</span> CareConnect</div>
+  <p>Built with ❤️ for <strong>CareConnect Healthcare NGO</strong></p>
+  <p class="footer-sub">Stack: Node.js · Express · EJS · MongoDB · Gemini AI · CSS · Vanilla JS</p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

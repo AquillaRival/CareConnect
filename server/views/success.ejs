@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CareConnect — Volunteer registration confirmed." />
+  <title>CareConnect — Registration Confirmed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="cross-icon">✚</span> CareConnect
+    </div>
+  </div>
+</nav>
+
+<div class="success-page">
+  <div class="success-card">
+
+    <!-- Animated checkmark -->
+    <div class="check-wrap">
+      <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="chk-circle" cx="26" cy="26" r="25" fill="none"/>
+        <path   class="chk-tick"   fill="none" d="M14 26l8 8 16-16"/>
+      </svg>
+    </div>
+
+    <div class="section-label" style="margin:0 auto 12px;">Registration Confirmed</div>
+    <h1 class="success-name">Welcome aboard, <em><%= name %></em>!</h1>
+    <p class="success-role">You've joined as a <strong><%= role %></strong> volunteer.</p>
+
+    <!-- AI suggestion -->
+    <div class="ai-block">
+      <div class="ai-chip">✨ Gemini AI Deployment Suggestion</div>
+      <blockquote class="ai-quote">"<%= aiSuggestion %>"</blockquote>
+    </div>
+
+    <!-- Next steps -->
+    <div class="next-grid">
+      <div class="next-card">
+        <span class="next-ico">📧</span>
+        <div>
+          <strong>Check your email</strong>
+          <p>Onboarding details will arrive within 24 hours.</p>
+        </div>
+      </div>
+      <div class="next-card">
+        <span class="next-ico">📅</span>
+        <div>
+          <strong>Stay ready</strong>
+          <p>A coordinator will reach out to schedule your first session.</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="/" class="btn btn-primary" style="display:inline-flex; margin-top:4px;">← Register Another Volunteer</a>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-logo"><span class="cross-icon">✚</span> CareConnect</div>
+  <p>© 2026 CareConnect Healthcare NGO · Built with purpose and AI</p>
+</footer>
+
+</body>
+</html>

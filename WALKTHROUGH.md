@@ -1,7 +1,7 @@
 # CareConnect — Complete Project Walkthrough
 
 > **What this document covers:**
-> A detailed, step-by-step guide of how the entire CareConnect healthcare NGO web app was built from scratch — including project setup, every file created, every route built and why, how the AI was integrated, and how the app was deployed to the internet.
+> A detailed, step-by-step guide of how the entire Jarurat Care NGO web app was built from scratch — including project setup, every file created, every route built and why, how the AI was integrated, and how the app was deployed to the internet.
 
 ---
 
@@ -489,7 +489,7 @@ const completion = await groq.chat.completions.create({
   messages: [
     {
       role: "system",
-      content: "You are an AI assistant for CareConnect healthcare NGO. Respond in exactly two sentences."
+      content: "You are an AI assistant for Jarurat Care healthcare NGO. Respond in exactly two sentences."
     },
     {
       role: "user",
@@ -568,7 +568,7 @@ app.post("/api/chat", async (req, res) => {
   const messages = [
     {
       role: "system",
-      content: `You are a warm, helpful AI assistant for CareConnect — a healthcare NGO in India.
+      content: `You are a warm, helpful AI assistant for Jarurat Care — a healthcare NGO in India.
 Answer questions about our services: free/subsidised medical consultations, mental health support,
 medicine distribution, home visits, diagnostic tests, and maternal & child health care.
 We have 14 clinic centres. Eligibility: BPL cardholders, low-income families, anyone in medical need.
@@ -718,7 +718,7 @@ req.write(body); req.end();
 
 Expected output:
 ```
-REPLY: {"reply":"At CareConnect, we offer free and subsidised medical consultations, mental health support..."}
+REPLY: {"reply":"At Jarurat Care, we offer free and subsidised medical consultations, mental health support..."}
 ```
 
 ---
@@ -914,4 +914,4 @@ CareConnect/
 
 ---
 
-*Built for CareConnect Healthcare NGO · Internship Assignment Submission · March 2026*
+*Built for Jarurat Care NGO · Internship Assignment Submission · March 2026*

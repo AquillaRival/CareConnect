@@ -70,7 +70,7 @@ app.post("/api/register", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: "You are an AI assistant for CareConnect, a healthcare NGO in India. Be specific and helpful. Respond in exactly two sentences.",
+          content: "You are an AI assistant for Jarurat Care, a healthcare NGO in India. Be specific and helpful. Respond in exactly two sentences.",
         },
         {
           role: "user",
@@ -131,7 +131,7 @@ app.post("/api/chat", async (req, res) => {
     const messages = [
       {
         role: "system",
-        content: `You are a warm, helpful AI assistant for CareConnect — a healthcare NGO in India.
+        content: `You are a warm, helpful AI assistant for Jarurat Care — a healthcare NGO in India.
 Answer questions about our services: free/subsidised medical consultations, mental health support,
 medicine distribution, home visits, diagnostic tests, and maternal & child health care.
 We have 14 clinic centres. Eligibility: BPL cardholders, low-income families, anyone in medical need.

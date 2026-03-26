@@ -1,6 +1,6 @@
 # CareConnect — Healthcare Support Portal
 
-A Mini Healthcare Support Web App built for the CareConnect NGO internship assignment.
+A Mini Healthcare Support Web App built for the Jarurat Care NGO internship assignment.
 
 ## 🌐 Live Demo
 > [Deployed on Render] — Add your link here after deployment
@@ -31,7 +31,7 @@ A real-time chat assistant on the homepage powered by Groq's Llama 3.3 model. Us
 The bot maintains **multi-turn conversation history** so follow-up questions work naturally.
 
 ## 🏥 NGO Use Case
-CareConnect serves rural and underserved communities by:
+Jarurat Care serves rural and underserved communities by:
 - Connecting patients with free medical consultations, mental health support, and medicines
 - Matching skilled volunteers to the right roles via AI
 - Operating 14 clinic centres with home visit programmes
@@ -80,4 +80,4 @@ CareConnect/
 | `POST` | `/api/chat` | Live Groq AI chatbot |
 
 ---
-Built with ❤️ · Submission for CareConnect NGO Internship · March 2026
+Built with ❤️ · Submission for Jarurat Care NGO Internship · March 2026
